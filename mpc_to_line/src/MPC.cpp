@@ -11,8 +11,8 @@ namespace plt = matplotlibcpp;
 using CppAD::AD;
 
 // TODO: Set N and dt
-size_t N = ? ;
-double dt = ? ;
+size_t N = 10;
+double dt = 0.2;
 
 // This value assumes the model presented in the classroom is used.
 //
@@ -93,6 +93,11 @@ class FG_eval {
       // these to the solver.
 
       // TODO: Setup the rest of the model constraints
+      fg[1 + x_start + t] = x1 - (x0 + v0 * CppAD::cos(psi0) * dt);
+      fg[1 + y_start + t] = y1 - (y0 + v0 * CppAD::sin(psi0) * dt);
+      fg[1 + psi_start + t] = psi1 - (psi0 + (v0 / Lf) * delta * dt);
+      fg[1 + x_start + t] = x1 - (x0 + v0 * CppAD::cos(psi0) * dt);
+      fg[1 + x_start + t] = x1 - (x0 + v0 * CppAD::cos(psi0) * dt);
       fg[1 + x_start + t] = x1 - (x0 + v0 * CppAD::cos(psi0) * dt);
     }
   }

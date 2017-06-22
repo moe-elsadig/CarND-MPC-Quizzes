@@ -5,6 +5,7 @@
 #include "Eigen-3.3/Eigen/QR"
 
 using namespace Eigen;
+using namespace std;
 
 // Evaluate a polynomial.
 double polyeval(Eigen::VectorXd coeffs, double x) {
@@ -55,7 +56,7 @@ int main() {
   for (double x = 0; x <= 20; x += 1.0) {
     // TODO: use `polyeval` to evaluate the x values.
     double y = polyeval(pFit, x);
-    std::cout << y << endl;
+    cout << y << endl;
   }
 
   // Expected output
